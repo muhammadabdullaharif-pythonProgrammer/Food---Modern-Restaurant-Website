@@ -1,0 +1,626 @@
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Lobster&family=Quicksand:wght@300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Dosis:wght@200;300;400;500;600;700;800&display=swap");
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:active,
+:hover,
+:focus {
+  outline: 0 !important;
+  outline-offset: 0;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--primary-color) !important;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+/* Variables */
+:root {
+  --primary-color: #ff553e;
+  --secondary-color: #333;
+  --white-color: #fff;
+  --black-color: #000;
+  --nav-light-black: rgba(0, 0, 0, 0.8); /* Light black for nav */
+  --secondary-font: "Quicksand", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 100%;
+  font-weight: 400;
+  font-family: "Dosis", sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 0.3125rem;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--white-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+}
+
+/* Typography */
+h1 {
+  font-size: 3rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: var(--white-color);
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 1.5625rem;
+  text-transform: capitalize;
+  font-family: var(--secondary-font);
+  color: var(--white-color);
+  line-height: 2.5rem;
+}
+
+h4 {
+  color: var(--white-color);
+  text-transform: capitalize;
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 0.9375rem;
+  transition: all 0.3s linear;
+}
+
+h5 {
+  font-weight: 400;
+  font-size: 0.875rem;
+  text-transform: capitalize;
+  color: var(--white-color);
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1rem;
+  color: var(--white-color);
+  font-weight: 400;
+  line-height: 1.75rem;
+  letter-spacing: 0.0625px;
+  opacity: 0.8;
+}
+
+/* Buttons */
+.main-btn {
+  height: 40px;
+  display: inline-block;
+  padding: 0 2rem;
+  line-height: 40px;
+  color: var(--white-color);
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.4s ease-out 0s;
+  position: relative;
+}
+
+.main-btn::after,
+.main-btn::before {
+  position: absolute;
+  top: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  left: 0;
+  width: 100%;
+  height: 1px;
+  content: "";
+  transition: all 0.5s ease-out 0s;
+  transform: translateY(-20px);
+}
+
+.main-btn:hover {
+  transform: translateY(20px);
+  color: var(--primary-color) !important;
+}
+
+.main-btn:hover::before,
+.main-btn:hover::after {
+  transform: rotate(20deg);
+  background-color: var(--primary-color);
+}
+
+.wrapper {
+  padding-top: 4rem;
+  padding-bottom: 7rem;
+  background-color: var(--secondary-color);
+}
+
+.text-content {
+  width: 60%;
+  margin: auto;
+}
+
+/* Header Design */
+.top-header {
+  background-color: var(--secondary-color);
+}
+
+.top-header span {
+  font-size: 0.875rem;
+  color: var(--white-color);
+  letter-spacing: 0.1062rem;
+}
+
+/* Navigation with background image and light black */
+.navigation-wrap {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  z-index: 1000;
+  transition: all 0.3s ease-out;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    /* Light black overlay */ url("../images/nav-bg.jpg") center/cover no-repeat; /* Background image */
+}
+
+.navigation-wrap .nav-item {
+  padding: 0 0.5rem;
+  transition: all 200ms linear;
+}
+
+.navbar-toggler:focus {
+  outline: unset;
+  border: unset;
+  box-shadow: none;
+}
+
+.navigation-wrap .nav-link {
+  padding-top: 0.9375rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--white-color);
+  letter-spacing: 0.0625rem;
+  transition: all 0.3s ease;
+}
+
+.navigation-wrap .nav-link:hover,
+.navigation-wrap .nav-link.active {
+  color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+/* Navbar brand logo styling */
+.navigation-wrap .navbar-brand img {
+  height: 50px;
+  transition: all 0.3s ease;
+}
+
+.navigation-wrap .navbar-brand:hover img {
+  transform: scale(1.05);
+}
+
+/* Change navbar style on scroll */
+.navigation-wrap.scroll-on {
+  position: fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+    /* Darker on scroll */ url("../images/nav-bg.jpg") center/cover no-repeat;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 0.125rem 1.75rem 1 rgba(0, 0, 0, 0.3);
+  transition: all 0.15s ease-in-out 0s;
+}
+
+.navigation-wrap.scroll-on .nav-link:hover,
+.navigation-wrap.scroll-on .nav-link.active {
+  color: var(--primary-color);
+}
+
+/* Navbar toggler icon styling */
+.navigation-wrap .navbar-toggler {
+  border: 1px solid var(--white-color);
+  padding: 0.25rem 0.5rem;
+}
+
+.navigation-wrap .navbar-toggler .navbar-toggler-icon {
+  color: var(--white-color);
+}
+
+/* Navbar dropdown styles (if needed) */
+.navigation-wrap .dropdown-menu {
+  background: var(--nav-light-black);
+  border: none;
+  border-radius: 0;
+}
+
+.navigation-wrap .dropdown-item {
+  color: var(--white-color);
+  transition: all 0.3s ease;
+}
+
+.navigation-wrap .dropdown-item:hover {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+
+/* Top banner Design */
+/* Add your top banner styles here */
+#home .carsousel-caption {
+  top: 12rem;
+}
+#home .carsousel-caption p {
+  max-width: 36.25rem;
+  margin: 1.0625rem auto;
+}
+
+/* New Arrivals Design */
+/* Add your new arrivals styles here */
+.new-arrivals .banner-info {
+  bottom: 30px;
+  margin: auto;
+  width: 100%;
+  position: absolute;
+  z-index: 9;
+  padding: 0 15px;
+}
+.new-arrivals .card-banner:nth-child(2) h2,
+.new-arrivals .card-banner:nth-child(2) p,
+.new-arrivals .card-banner:nth-child(2) a {
+  color: var(--black-color);
+}
+.card-container {
+display: flex;
+gap: 30px;
+padding: 40px;
+justify-content: center;
+background: #f2f2f2;
+font-family: "Quicksand", sans-serif;
+}
+
+
+.card {
+width: 350px;
+height: 520px;
+border-radius: 25px;
+overflow: hidden;
+position: relative;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+.card img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+position: absolute;
+top: 0;
+left: 0;
+}
+
+
+.card-content {
+position: absolute;
+bottom: 0;
+width: 100%;
+padding: 25px;
+background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0));
+color: white;
+border-radius: 0 0 25px 25px;
+}
+
+
+.card-content h3 {
+font-size: 1.6rem;
+margin-bottom: 8px;
+font-weight: 600;
+}
+
+
+.card-content p {
+font-size: 0.95rem;
+line-height: 1.4rem;
+opacity: 0.9;
+margin-bottom: 15px;
+}
+
+
+.card-tags {
+display: flex;
+gap: 12px;
+margin-bottom: 20px;
+}
+
+
+.tag {
+padding: 6px 14px;
+border-radius: 30px;
+background: rgba(255,255,255,0.25);
+font-size: 0.85rem;
+}
+
+
+.reserve-btn {
+width: 100%;
+background: white;
+color: black;
+padding: 12px 0;
+border-radius: 30px;
+font-weight: 600;
+border: none;
+cursor: pointer;
+font-size: 1rem;
+}
+.new-arrivals .card-banner:nth-child(2) a::before,
+.new-arrivals .card-banner:nth-child(2) a::after {
+  background-color: var(--black-color);
+}
+.new-arrivals .card-banner .card-thumb,
+.product .item-product {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+.new-arrivals .card-banner .card-thumb img,
+.product .item-product img {
+  transition: all 0.5s ease-out 0s;
+}
+.new-arrivals .card-banner .card-thumb img:hover,
+.product .item-product img:hover {
+  transform: scale(1.2);
+  opacity: 0.6;
+}
+
+/* Products Design */
+/* Add your products styles here */
+.products .nav-tabs {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  justify-content: center;
+}
+
+.products .nav-tabs .nav-link {
+  color: var(--white-color);
+  border: none;
+  padding: 1rem 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.products .nav-tabs .nav-link:hover {
+  opacity: 1;
+  color: var(--primary-color);
+  background: transparent;
+  border: none;
+}
+
+.products .nav-tabs .nav-link.active {
+  opacity: 1;
+  color: var(--primary-color);
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.item-product {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  margin-bottom: 1.5rem;
+}
+
+.item-product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.product-thumb-link {
+  display: block;
+  overflow: hidden;
+}
+
+.product-thumb-link img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+
+.item-product:hover .product-thumb-link img {
+  transform: scale(1.1);
+}
+
+.product-info {
+  padding: 1.5rem;
+}
+
+.cat-parent {
+  color: var(--primary-color);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.wishlist {
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+.wishlist:hover {
+  color: var(--primary-color);
+  transform: scale(1.2);
+}
+
+.product-title a {
+  color: var(--white-color);
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.product-title a:hover {
+  color: var(--primary-color);
+}
+
+.product-price {
+  margin: 0.5rem 0;
+}
+
+.product-price ins {
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.product-price del {
+  margin-left: 0.5rem;
+  opacity: 0.6;
+}
+
+.rating {
+  color: var(--primary-color);
+}
+
+.rating .far {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.basket a {
+  color: var(--white-color);
+  background: var(--primary-color);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.basket a:hover {
+  background: var(--white-color);
+  color: var(--primary-color);
+  transform: scale(1.1);
+}
+/* Deal Design */
+/* Add your deal styles here */
+.deal-of-the-day {
+  background-image: url("../images/img/img-4.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* Blog Design */
+/* Add your blog styles here */
+/* Blog Design */
+.blog-section {
+  background-color: var(--secondary-color);
+}
+
+.blog-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.blog-card .card-thumb {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.blog-card .card-thumb img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+
+.blog-card:hover .card-thumb img {
+  transform: scale(1.1);
+}
+
+.blog-card .card-thumb::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.blog-card:hover .card-thumb::after {
+  opacity: 1;
+}
+
+.blog-card h2 {
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--white-color);
+  margin-bottom: 1rem;
+  font-family: var(--secondary-font);
+  transition: all 0.3s ease;
+}
+
+.blog-card:hover h2 {
+  color: var(--primary-color);
+}
+
+.blog-card p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.blog-card .main-btn {
+  margin-top: auto;
+  align-self: center;
+}
+
+/* Blog card content area */
+.blog-card > div:last-child {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
